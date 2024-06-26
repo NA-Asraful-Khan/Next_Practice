@@ -1,10 +1,23 @@
-type ProductDetailsParams = {
-    params: {
-      productId: string;
-    };
-  };
+import { Metadata } from "next";
 
-const ProductDetails: React.FC<ProductDetailsParams> = ({ params }) => {
+type ProductDetailsParams = {
+  params: {
+    productId: string;
+  };
+};
+
+
+export const generateMetadata = async ({ params }: ProductDetailsParams):Promise<Metadata>  => {
+  const title = await new Promise((resolve)=>{
+    resolve(`iPhone ${params.productId}`)
+  })
+  return {
+    title: `Product ${title}`,
+  };
+};
+
+
+const ProductDetails = ({ params }:ProductDetailsParams) => {
     return (
       <h1>Details About Product {params.productId}</h1>
     );

@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 type ReviewDetailsParams = {
@@ -6,6 +7,13 @@ type ReviewDetailsParams = {
       reviewId:string
     };
   };
+
+export const generateMetadata = ({ params }: ReviewDetailsParams): Metadata => {
+    return {
+      title: `Review ${params.reviewId}`,
+    };
+  };
+
 const ReviewDetail:React.FC<ReviewDetailsParams> = ({params}) => {
   if(parseInt(params.reviewId)>1000){
     notFound()
