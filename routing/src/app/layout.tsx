@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer/Footer"
 import { Metadata } from "next"
 import Link from "next/link"
 
@@ -28,16 +29,10 @@ export default function RootLayout({
           <Link href={'/'}>Home</Link>
           <Link href={'/products'}>-Products</Link>
           <Link href={'/register'}>-Register</Link>
+          <Link href={'/order-product'}>-PlaceOrder</Link>
         </header>
         {children}
-        <footer 
-        style={{
-          backgroundColor:'lime',
-          padding:"1rem"
-        }}
-        >
-          <h4>Footer</h4>
-        </footer>
+        <Footer/>
       </body>
     </html>
   )
